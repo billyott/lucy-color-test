@@ -36,7 +36,6 @@ function init() {
     managerElm.innerHTML = `
       name: ${manager.name} // ranking: ${manager.ranking}
     `;
-    console.log(managerContainer)
     managerContainer.appendChild(managerElm);
   });
 }
