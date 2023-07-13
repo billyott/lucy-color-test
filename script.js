@@ -1,25 +1,45 @@
-/* mock data request */
-import data from "data.json";
+const data = {
+  managers: [
+    {
+      id: "123",
+      name: "Bob Apple",
+      pnl: "abc",
+      ranking: 10,
+    },
+    {
+      id: "456",
+      name: "April May",
+      pnl: "lmn",
+      ranking: 2, 
+    },
+    {
+      id: "798",
+      name: "Chip Indale",
+      pnl: "xyz",
+      ranking: 5,
+    },
+  ],
+};
 
-/* Build out functions */
-function togglePlay() {
-  const method = video.paused ? 'play' : 'pause';
-  video[method]();
+const colorMap = {
+  abc: 'green',
+  lmn: 'blue',
+  xyz: 'red',
 }
 
-/* Hook up the event listeners */
-video.addEventListener('click', togglePlay);
-video.addEventListener('play', updateButton);
-video.addEventListener('pause', updateButton);
-video.addEventListener('timeupdate', handleProgress);
+function init() {
+  const managerContainer = document.getElementsByClassName('manager-container')[0];
+  data.managers.forEach((manager) => {
+    const managerElm = document.createElement('li');
+    managerElm.classList.add('manager');
+    managerElm.style.color = colorMap[manager.pnl];
+    managerElm.innerHTML = `
+      name: ${manager.name} // ranking: ${manager.ranking}
+    `;
+    console.log(managerContainer)
+    managerContainer.appendChild(managerElm);
+  });
+}
 
-toggle.addEventListener('click', togglePlay);
-skipButtons.forEach(button => button.addEventListener('click', skip));
-ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
-ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
+init();
 
-let mousedown = false;
-progress.addEventListener('click', scrub);
-progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
-progress.addEventListener('mousedown', () => mousedown = true);
-progress.addEventListener('mouseup', () => mousedown = false);
