@@ -1,0 +1,25 @@
+{
+    "data": {
+        "managers": [
+          {
+            "id": "123",
+            "managerName": "Bob Apple",
+            "pnl": "abc",
+            "ranking": 10 
+          },
+          {
+            "id": "456",
+            "managerName": "April May",
+            "pnl": "lmn",
+            "ranking": 2 
+          },
+          {
+            "id": "798",
+            "managerName": "Chip Indale",
+            "pnl": "xyz",
+            "ranking": 5 
+          }
+        ]
+    }
+  }
+  
